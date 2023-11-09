@@ -1,0 +1,33 @@
+<p>ajouter-p works!</p>
+
+
+
+
+<form (ngSubmit)="onsubmit(f)" #f=ngForm>
+    Nom: <input type="text" class="form-control"  placeholder="Entrer nom " ngModel name="nom" required #nom="ngModel"> 
+    <br>
+    <br>
+    <span style= color:red *ngIf="!nom.valid && nom.touched">Entrez le nom</span>
+    <br>
+    Prix: <input type="text" class="form-control"  placeholder="Entrer nom " ngModel name="prix" required #prix="ngModel">
+    <br>
+    <br>
+    <span style= color:red *ngIf="!prix.valid && prix.touched">Entrez le prix</span>
+    <br>
+   Quantite: <input type="text" class="form-control"  placeholder="Entrer nom " ngModel name="quantite" required #quantite="ngModel">
+   <br>
+   <br>
+    <span style= color:red *ngIf="!quantite.valid && quantite.touched">Entrez la quantite</span>
+    <br>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Categorie</label>
+        <select class="form-control" ngModel name="categorie" required #categorie="ngModel">
+          <option  disabled>--select categorie--</option>
+          <option *ngFor="let c of categories" value="{{c.idcat}}" >{{c.nom}}</option>
+        </select>
+        <span style= color:red *ngIf="!categorie.valid && categorie.touched">Entrez la categorie</span>
+      </div>
+
+    <button [disabled]=!f.valid class="btn btn-success">Ajouter</button>
+
+</form>

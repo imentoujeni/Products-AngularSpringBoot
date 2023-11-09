@@ -1,0 +1,23 @@
+<p>modifier-p works!</p>
+
+
+<form (ngSubmit)="modifier()" #f=ngForm>
+    <label >Nom :</label> 
+    <input type="text" class="form-control"  placeholder="Entrer nom " [(ngModel)]=produit.nom name="nom" required #nom="ngModel">
+    <br>
+    <span style= color:red *ngIf="!nom.valid && nom.touched">Entrer le nom</span>
+    <br>
+    <label >Prix :</label>
+     <input type="text" class="form-control" id="prix" placeholder="Entrer prix " [(ngModel)]=produit.prix name="prix" required #prix="ngModel">
+    <br>
+    <span style=color:red *ngIf="!prix.valid && prix.touched">Entrer prix</span>
+    <br>
+    <label >Quantite :</label>
+     <input type="text"  class="form-control" id="quantite" placeholder="Entrer quantite " [(ngModel)]=produit.quantite name="quantite" required #quantite="ngModel">
+    <br>
+    <span style=color:red *ngIf="!quantite.valid && quantite.touched">Enter quantite</span>
+    <br>
+    <br>
+    <button [disabled]=!f.valid class="btn btn-warning fa-edit">Modifier</button>
+   
+  </form>
